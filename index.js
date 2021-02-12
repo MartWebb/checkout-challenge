@@ -17,6 +17,7 @@ let formElements = form.elements;
 
 // Totaling setup
 let count = 1;
+let countTwo = 1;
 let total = 0;
 const bag = 54.99;
 const shoes = 74.99;
@@ -37,8 +38,8 @@ onePlus.addEventListener('click', () => {
 twoPlus.addEventListener('click', () => {
     total += shoes;
     totalAmount.textContent = total.toFixed(2);
-    count += 1;
-    qtyOne.textContent = count;
+    countTwo += 1;
+    qtyTwo.textContent = countTwo;
 });
 
 //  Subtraction Listeners
@@ -52,11 +53,11 @@ oneMinus.addEventListener('click', () => {
 });
 
 twoMinus.addEventListener('click', () => {
-    if (count !== 1) {
+    if (countTwo !== 1) {
         total -= shoes;
         totalAmount.textContent = total.toFixed(2);
-        count -= 1;
-        qtyTwo.textContent = count;
+        countTwo -= 1;
+        qtyTwo.textContent = countTwo;
     }
 });
 
