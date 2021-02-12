@@ -7,6 +7,7 @@ const qtyOne = document.querySelector('.qty-one');
 const qtyTwo = document.querySelector('.qty-two');
 const totalAmount = document.querySelector('.total-amount');
 const saveButton = document.querySelector('.submit-btn');
+const checkbox = document.getElementById('checkbox');
 
 // Save data setup
 const formId = "save-later-form";
@@ -74,7 +75,12 @@ const getFormData = () => {
 
 // Save form data
 const saveData = () => {
-    alert('You are successful!');
-    data = getFormData();
-    localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]));
+    if (checkbox.checked) {
+        alert('You are successful!');
+        data = getFormData();
+        localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]));
+        return;
+    }
+    alert('You did not save!');
+    
 };
