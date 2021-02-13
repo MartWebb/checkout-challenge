@@ -174,10 +174,6 @@ header {
     overflow: hidden;
 }
 
-.shipping-area-width {
-    min-width: 25em;
-}
-
 .material-icons {
     color: var(--clr-gray-3);
 }
@@ -310,6 +306,10 @@ footer {
 
     .contact-information-headers {
         font: var(--font-18);
+    }
+
+    .shipping-area-width {
+        min-width: 25em;
     }
 
     .contact-label {
