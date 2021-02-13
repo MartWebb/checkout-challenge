@@ -70,42 +70,42 @@
             <form id="save-later-form" action="successful.html" autocomplete="on" onsubmit="saveData()">
                 <h3 class="contact-information-headers">Contact information</h3>
                 <div class="email-phone">
-                    <label class="contact-label">E-mail</label>
+                    <label class="contact-label" for="email">E-mail</label>
                     <div class="shipping-area">
                         <span class="material-icons">email</span>
-                        <input type="email" id="email" name="email" placeholder="Enter your email..." size="30" required>
+                        <input class="width" type="email" id="email" name="email" placeholder="Enter your email..." required>
                     </div>
                     <label class="contact-label" for="phone">Phone</label>
                     <div id="box" class="shipping-area">
                         <span class="material-icons">call</span>
-                        <input type="tel" id="phone" name="phone" placeholder="Enter 10 digit phone number..." pattern="[0-9]{10}" size="30" required>
+                        <input class="width" type="tel" id="phone" name="phone" placeholder="Enter 10 digit phone number..." pattern="[0-9]{10}" required>
                     </div>
                 </div>
 
                 <div class="shipping-details">
                     <h3 class="contact-information-headers">Shipping address</h3>
-                    <label class="contact-label">Full name</label>
+                    <label for="name" class="contact-label">Full name</label>
                     <div class="shipping-area">
                         <span class="material-icons">account_circle</span>
-                        <input type="text" id="name" name="name" placeholder="Rodney Cotton" required>
+                        <input class="width" type="text" id="name" name="name" placeholder="Rodney Cotton" required>
                     </div>
                     <label class="contact-label" for="address">Address</label>
                     <div class="shipping-area">
                         <span class="material-icons">home</span>
-                        <input type="text" id="address" name="address" placeholder="Your address..." required>
+                        <input class="width" type="text" id="address" name="address" placeholder="Your address..." required>
                     </div>
                     <label class="contact-label" for="city">City</label>
                     <div class="shipping-area">
                         <span class="material-icons">location_city</span>
-                        <input type="text" id="city" name="city" placeholder="Your city..." required>
+                        <input class="width" type="text" id="city" name="city" placeholder="Your city..." required>
                     </div>
             
                     <div class="shipping-box">
                         <div class="shipping-country">
-                            <label>Country</label>
+                            <label class="contact-label" for="country">Country</label>
                             <div class="shipping-area">
                                 <span class="material-icons">public</span>
-                                <select for="country" name="countries" required>
+                                <select class="width" id="country" name="country" required>
                                     <option class="options" value="" disabled selected>Your country...</option>
                                     <option class="options"value="uk">UK</option>
                                     <option class="options" value="france">France</option>
@@ -117,10 +117,10 @@
                         </div>    
                         
                         <div class="shipping-post-code">
-                            <label for="post-code">Postal code</label>
+                            <label class="contact-label" for="post-code">Postal code</label>
                             <div class="shipping-area">
                                 <span class="material-icons">markunread_mailbox</span>
-                                <input type="text" id="post-code" name="post-code" placeholder="Your postal code..." size="10" required>
+                                <input class="width" type="text" id="post-code" name="post-code" placeholder="Your postal code..." required>
                             </div>
                         </div>
                     </div> <!-- shipping-box -->

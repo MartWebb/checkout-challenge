@@ -164,6 +164,8 @@ header {
     padding: .5em;
     display: flex;
     margin-bottom: .5em;
+    min-width: 10em;
+    overflow: hidden;
 }
 
 .material-icons {
@@ -176,6 +178,10 @@ select {
     outline: none;
     margin-left: 1em;
     color: var(--clr-gray-3);
+}
+
+.width {
+    width: 100%;
 }
 
 .shipping-box {
@@ -289,6 +295,10 @@ footer {
 
     .contact-information-headers {
         font: var(--font-18);
+    }
+
+    .contact-label {
+        font: var(--font-12);
     }
 
     .submit-btn {
