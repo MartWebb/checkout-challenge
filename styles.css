@@ -175,9 +175,15 @@ header {
 input,
 select {
     border: none;
-    outline: none;
     margin-left: 1em;
     color: var(--clr-gray-3);
+    padding: .4em;                              
+}                                   
+
+input:focus,
+select:focus {
+    outline-style: dashed;
+    outline-color: var(--clr-gray-3); 
 }
 
 .width {
