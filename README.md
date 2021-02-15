@@ -8,15 +8,15 @@
 
 <div align="center">
   <h3>
-    <a href="https://{https://github.com/MartWebb/checkout-challenge}">
+    <a href="https://{github.com/MartWebb/checkout-challenge}">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{https://martwebb.github.io/checkout-challenge/}">
+    <a href="https://{martwebb.github.io/checkout-challenge/}">
       Solution
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/challenges/gcbWLxG6wdennelX7b8I">
+    <a href="https://devchallenges.io/challenges/0J1NxxGhOUYVqihwegfO">
       Challenge
     </a>
   </h3>
