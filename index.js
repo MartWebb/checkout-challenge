@@ -1,13 +1,37 @@
 // DOM Elements
-const onePlus = document.querySelector('.one-plus');
-const oneMinus = document.querySelector('.one-minus');
-const twoPlus = document.querySelector('.two-plus');
-const twoMinus = document.querySelector('.two-minus');
+const ctl = document.querySelectorAll('.ctl');
+const price = document.querySelectorAll('.product-price-new');
 const qtyOne = document.querySelector('.qty-one');
 const qtyTwo = document.querySelector('.qty-two');
 const totalAmount = document.querySelector('.total-amount');
+const shipping = document.querySelector('.shipping');
+
+// Dom elements used for storage
 const saveButton = document.querySelector('.submit-btn');
 const checkbox = document.getElementById('checkbox');
+
+let priceArray = [];
+let qtyArray = [];
+
+const qtyChangeHandler = (targetClassName) => {
+    const qty = document.querySelector(`.qty-${targetClassName.slice(0,3)}`);
+    let num = qty.innerText;
+    targetClassName.slice(4,7) === 'plu' ? num++ : num !== '0' ? num-- : num = 0;
+    qty.textContent = num;
+    totalHandler();
+};
+
+const totalHandler = () => {
+    price.forEach(price => priceArray.push(price.innerText.replace(/\$|,/g, '')));
+    let total = parseFloat(priceArray[0]) * parseInt(qtyOne.innerText) 
+        + parseFloat(priceArray[1]) 
+        * parseInt(qtyTwo.innerText) 
+        + parseInt(shipping.innerText.replace(/\$|,/g, ''));
+    if (qtyOne.textContent === '0' && qtyTwo.textContent === '0') total = 0
+    totalAmount.textContent = total.toFixed(2);
+};
+
+ctl.forEach(ctl => ctl.addEventListener('click', (event) => qtyChangeHandler(event.target.className.slice(4))));
 
 // Save data setup
 const formId = "save-later-form";
@@ -15,52 +39,6 @@ const url = location.href;
 const formIdentifier = `${url} ${formId}`;
 let form = document.querySelector(`#${formId}`); 
 let formElements = form.elements;
-
-// Totaling setup
-let count = 1;
-let countTwo = 1;
-let total = 0;
-const bag = 54.99;
-const shoes = 74.99;
-const tax = 19.00;
-total = bag + shoes + tax;
-totalAmount.textContent = total;
-
-// There is a better way, but I cannot think of it at the mo
-// Addition listners
-onePlus.addEventListener('click', () => {
-    total += bag;
-    totalAmount.textContent = total.toFixed(2);
-    count += 1;
-    qtyOne.textContent = count;
-});
-
-
-twoPlus.addEventListener('click', () => {
-    total += shoes;
-    totalAmount.textContent = total.toFixed(2);
-    countTwo += 1;
-    qtyTwo.textContent = countTwo;
-});
-
-//  Subtraction Listeners
-oneMinus.addEventListener('click', () => {
-    if (count !== 1) {
-        total -= bag;
-        totalAmount.textContent = total.toFixed(2);
-        count -= 1;
-        qtyOne.textContent = count;
-    }
-});
-
-twoMinus.addEventListener('click', () => {
-    if (countTwo !== 1) {
-        total -= shoes;
-        totalAmount.textContent = total.toFixed(2);
-        countTwo -= 1;
-        qtyTwo.textContent = countTwo;
-    }
-});
 
 // Get form data
 const getFormData = () => {
@@ -76,11 +54,11 @@ const getFormData = () => {
 // Save form data
 const saveData = () => {
     if (checkbox.checked) {
-        alert('You are successful!');
+        alert('You are successful and you saved!');
         data = getFormData();
         localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]));
         return;
     }
-    alert('You did not save!');
+    alert('You are successful, but you did not save!');
     
 };
